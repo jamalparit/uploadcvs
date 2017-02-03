@@ -1,10 +1,22 @@
 <?php
-$hostname = “localhost”;
-$username = “root”;
-$password = “”;
-$database = “import_exceldata”;
-$conn = mysql_connect(“$hostname”,”$username”,”$password”) or die(mysql_error());
-mysql_select_db(“$database”, $conn) or die(mysql_error());
+//$hostname = “localhost”;
+//$username = “root”;
+//$password = “”;
+//$database = “import_exceldata”;
+//$conn = new mysqli(“$hostname”,”$username”,”$password”);
+//mysql_select_db(“$database”, $conn) or die(mysql_error());
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "import_exceldata";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+	
 ?>
 <html>
 <head>
@@ -67,7 +79,10 @@ while(($filesop = fgetcsv($handle, 1000, “,”)) !== false)
 $name = $filesop[0];
 $project = $filesop[1];
 
-$sql = mysql_query(“INSERT INTO mytask (name, project) VALUES (‘$name’,’$project’)”);
+//$sql = mysql_query(“INSERT INTO mytask (name, project) VALUES (‘$name’,’$project’)”);
+$suruh = “INSERT INTO mytask (name, project) VALUES (‘$name’,’$project’)”;
+$sql = mysql_query($suruh)
+
 $c = $c + 1;
 }
 
