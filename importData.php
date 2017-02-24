@@ -17,16 +17,10 @@ if(isset($_POST['importSubmit'])){
             
             //parse data from csv file line by line
             while(($line = fgetcsv($csvFile)) !== FALSE){
-                //check whether member already exists in database with same email
-                $prevQuery = "SELECT id FROM members WHERE email = '".$line[1]."'";
-                $prevResult = $db->query($prevQuery);
-                if($prevResult->num_rows > 0){
-                    //update member data
-                    $db->query("UPDATE members SET name = '".$line[0]."', phone = '".$line[2]."', created = '".$line[3]."', modified = '".$line[3]."', status = '".$line[4]."' WHERE email = '".$line[1]."'");
-                }else{
-                    //insert member data into database
-                    $db->query("INSERT INTO members (name, email, phone, created, modified, status) VALUES ('".$line[0]."','".$line[1]."','".$line[2]."','".$line[3]."','".$line[3]."','".$line[4]."')");
-                }
+
+                                    //insert member data into database
+                    $db->query("INSERT INTO murid (nokp, nama, kodsek, darjah, kelas, jantina, agama, kaum ,tahun) VALUES ('".$line[0]."','".$line[1]."','".$line[2]."','".$line[3]."','".$line[4]."','".$line[5]."','".$line[6]."','".$line[7]."','".$line[8]."')");
+
             }
             
             //close opened csv file

@@ -57,13 +57,15 @@ if(!empty($_GET['status'])){
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                      <th>Nama Murid</th>
                       <th>No KP</th>
+                      <th>Nama</th>
                       <th>Kod Sekolah</th>
-                      <th>Nama Sekolah</th>
-                      <th>Email</th>
-                      <th>Created</th>
-                      <th>Status</th>
+                      <th>Darjah</th>
+                      <th>Kelas</th>
+                      <th>Jantina</th>
+                      <th>Agama</th>
+                      <th>Kaum</th>
+                      <th>Tahun</th>                      
                     </tr>
                 </thead>
                 <tbody>
@@ -74,13 +76,15 @@ if(!empty($_GET['status'])){
                         while($row = $query->fetch_assoc()){
                         ?>
                     <tr>
-                      <td><?php echo $row['nama']; ?></td>
                       <td><?php echo $row['nokp']; ?></td>
+                      <td><?php echo $row['nama']; ?></td>
                       <td><?php echo $row['kodsek']; ?></td>
-                      <td><?php echo $row['namasekolah']; ?></td>
-                      <td><?php echo $row['email']; ?></td>
-                      <td><?php echo $row['created']; ?></td>
-                      <td><?php echo ($row['status'] == '1')?'Active':'Inactive'; ?></td>
+                      <td><?php echo $row['darjah']; ?></td>
+                      <td><?php echo $row['kelas']; ?></td>
+                      <td><?php echo $row['jantina']; ?></td>
+                   	  <td><?php echo $row['agama']; ?></td>
+                      <td><?php echo $row['kaum']; ?></td>
+                      <td><?php echo $row['tahun']; ?></td>
                     </tr>
                     <?php } }else{ ?>
                     <tr><td colspan="5">No member(s) found.....</td></tr>
